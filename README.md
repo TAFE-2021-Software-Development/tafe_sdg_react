@@ -1,5 +1,5 @@
 # SDG TAFE App
-## This is Master Branch
+## This is Group 1 Branch
 ## Language
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
