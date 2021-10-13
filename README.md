@@ -12,4 +12,4 @@
 
 ## Note
 - We will manage the home screen and proper routing on Wednesday.
-- Please only create pull request to your own team branch, in order to avoid conflict. (we will merge all the main 4 group branches only in class).
+- Please only create pull request to your own team branch, in order to avoid conflict. (we will merge all the main 4 group branches into master only in class).
