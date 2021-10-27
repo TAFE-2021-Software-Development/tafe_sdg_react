@@ -1,3 +1,8 @@
+## Group Note
+- The Icon library now using FontAwesome icon, it will avoid any conflict as long as we not forgetting to npm i & pod install.
+- The axample of usage can be found in the CafeScreen.js , explore the icon gallery at https://fontawesome.com/v5.15/icons?d=gallery&p=1
+
+
 # SDG TAFE App
 ## This is Group 2 Branch
 ## Language
