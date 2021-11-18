@@ -1,5 +1,10 @@
+## Group Note
+- The Icon library now using FontAwesome icon, it will avoid any conflict as long as we not forgetting to npm i & pod install.
+- The axample of usage can be found in the CafeScreen.js , explore the icon gallery at https://fontawesome.com/v5.15/icons?d=gallery&p=1
+
+
 # SDG TAFE App
-## This is Master Branch
+## This is Group 2 Branch
 ## Language
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
