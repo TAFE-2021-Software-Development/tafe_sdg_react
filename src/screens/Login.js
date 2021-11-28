@@ -9,8 +9,12 @@ import {
   SafeAreaView,
 } from 'react-native';
 import Checkbox from 'expo-checkbox';
+import axios from 'axios';
+var theName;
 
 const Login = ({navigation}) => {
+  var theEmail;
+  var thePassword;
   const [checked, setChecked] = React.useState(false);
   return (
     <View>
@@ -57,6 +61,7 @@ const Login = ({navigation}) => {
             color: '#00716F',
           }}
           placeholder="email/username"
+          onChangeText={text => (theEmail = text)}
         />
       </View>
 
@@ -76,6 +81,7 @@ const Login = ({navigation}) => {
             color: '#00716F',
           }}
           placeholder="Password"
+          onChangeText={text => (thePassword = text)}
         />
       </View>
       <View
@@ -122,7 +128,22 @@ const Login = ({navigation}) => {
           bottom: 150,
         }}>
         <Text
-          onPress={() => navigation.navigate('Main')}
+          onPress={() => {
+            const user = {
+              email: theEmail,
+              password: thePassword,
+            };
+
+            console.log(user);
+
+            axios.post('http://3.16.123.62/api/user/login/', user).then(res => {
+              theName = res.data.user.name;
+              console.log(`Name = ${res.data.user.name}`);
+              console.log(`Token = ${res.data.token[0]}`);
+            });
+
+            navigation.navigate('Main');
+          }}
           style={{color: 'white', fontSize: 20}}>
           Login
         </Text>
@@ -145,4 +166,4 @@ const Login = ({navigation}) => {
   );
 };
 
-export default Login;
+export {Login, theName};

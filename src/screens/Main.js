@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import axios from 'axios';
+import * as Login from './Login';
 
 async function getTips() {
   try {
@@ -25,10 +26,9 @@ async function getTips() {
 
 async function alertHandler(navigation) {
   const response = await getTips();
-  //function to make three option alert
   Alert.alert(
     //title
-    `Today's Tips`,
+    `Today's Tips\n`,
     //body
     `${response}`,
     [{text: 'OK', onPress: () => console.log('OK Pressed')}],
@@ -53,7 +53,7 @@ const Main = ({navigation}) => {
           top: 80,
           left: 10,
         }}>
-        Explore
+        Hi {Login.theName}
       </Text>
 
       <TouchableOpacity
