@@ -7,6 +7,7 @@ import {
   ScrollView,
   TextInput,
   SafeAreaView,
+  Alert,
 } from 'react-native';
 import Checkbox from 'expo-checkbox';
 import axios from 'axios';
@@ -117,7 +118,34 @@ const Login = ({navigation}) => {
       </View>
 
       <TouchableOpacity
-        onPress={() => navigation.navigate('Main')}
+        onPress={() => {
+          const user = {
+            email: theEmail,
+            password: thePassword,
+          };
+
+          console.log(user);
+
+          axios
+            .post('http://3.16.123.62/api/user/login/', user)
+            .then(res => {
+              if (res.status === 200) {
+                theName = res.data.user.name;
+                console.log(`Name = ${res.data.user.name}`);
+                console.log(`Token = ${res.data.token[0]}`);
+                navigation.navigate('Main');
+              }
+            })
+            .catch(err => {
+              console.log(err);
+              Alert.alert(
+                'Invalid Credentials',
+                'Please check your email and password',
+                [{text: 'OK', onPress: () => console.log('OK Pressed')}],
+                {cancelable: true},
+              );
+            });
+        }}
         style={{
           paddingHorizontal: 120,
           paddingVertical: 10,
@@ -127,26 +155,7 @@ const Login = ({navigation}) => {
           position: 'absolute',
           bottom: 150,
         }}>
-        <Text
-          onPress={() => {
-            const user = {
-              email: theEmail,
-              password: thePassword,
-            };
-
-            console.log(user);
-
-            axios.post('http://3.16.123.62/api/user/login/', user).then(res => {
-              theName = res.data.user.name;
-              console.log(`Name = ${res.data.user.name}`);
-              console.log(`Token = ${res.data.token[0]}`);
-            });
-
-            navigation.navigate('Main');
-          }}
-          style={{color: 'white', fontSize: 20}}>
-          Login
-        </Text>
+        <Text style={{color: 'white', fontSize: 20}}>Login</Text>
       </TouchableOpacity>
 
       <Text

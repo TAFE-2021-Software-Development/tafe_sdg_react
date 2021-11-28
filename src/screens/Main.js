@@ -28,9 +28,9 @@ async function alertHandler(navigation) {
   const response = await getTips();
   Alert.alert(
     //title
-    `Today's Tips\n`,
+    `Today's Tip\n`,
     //body
-    `${response}`,
+    `${response}\n`,
     [{text: 'OK', onPress: () => console.log('OK Pressed')}],
     {cancelable: true},
   );
