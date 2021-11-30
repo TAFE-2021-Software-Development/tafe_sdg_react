@@ -13,6 +13,7 @@ import Challenge from '../screens/Challenge';
 import Tips from '../screens/Tips';
 import User from '../screens/User';
 import Reservation from '../screens/Reservation';
+import UpComingEvent from '../screens/UpComingEvent';
 
 const stackNavigatorOptions = {
   headerShown: false,
@@ -32,6 +33,7 @@ const Navigator = createStackNavigator(
     Tips: {screen: Tips},
     User: {screen: User},
     Reservation: {screen: Reservation},
+    UpComingEvent: {screen: UpComingEvent},
   },
   {
     defaultNavigationOptions: stackNavigatorOptions,
